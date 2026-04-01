@@ -1,0 +1,24 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres-test
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: rootpass
+      POSTGRES_DB: devdb
+      POSTGRES_USER: testuser
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
+
+  ssh:
+    build: ./ssh
+    container_name: ssh-tunnel
+    restart: unless-stopped
+    ports:
+      - "2222:2222"
+
+volumes:
+  postgres-data:
