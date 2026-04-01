@@ -29,7 +29,7 @@
       database: devdb
       auth:
         username: testuser
-        password: testpass
+        password: rootpass
       proxy: proxy-do-postgres
   - action: Run PostgreSQL queries directly
     type: POSTGRESQL_CLI
@@ -46,4 +46,4 @@
       database: devdb
       auth:
         username: testuser
-        password: testpass
+        password: rootpass
