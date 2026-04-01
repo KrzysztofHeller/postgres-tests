@@ -12,7 +12,7 @@
     port: 2223
     auth:
       username: tunnel
-      password: '!encrypted EMRamIH2CIZEysd9b0GRqg==.UsJn/DSxqPLreAIYUnI06A=='
+      password: tunnel
   actions:
   - action: Run PostgreSQL queries via proxy
     type: POSTGRESQL_CLI
