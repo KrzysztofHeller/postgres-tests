@@ -59,7 +59,7 @@ Hasło: `rootpass`
 | Hasło           | `rootpass`  |
 | SSH user        | `tunnel`    |
 | SSH hasło       | `tunnel`    |
-| SSH port        | `2222`      |
+| SSH port        | `2223`      |
 
 ## Inicjalizacja bazy
 
