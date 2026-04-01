@@ -29,7 +29,7 @@
       database: devdb
       auth:
         username: testuser
-        password: '!encrypted jNbx2XdL/8jZfrISvrkyAw==.h+PTlUn6SPdHsd1/1+IP6w=='
+        password: testpass
       proxy: proxy-do-postgres
   - action: Run PostgreSQL queries directly
     type: POSTGRESQL_CLI
