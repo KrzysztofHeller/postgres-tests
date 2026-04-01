@@ -1,0 +1,49 @@
+- pipeline: test
+  refs:
+  - refs/heads/master
+  fail_on_prepare_env_warning: true
+  events:
+  - type: WEBHOOK
+  targets:
+  - target: proxy-do-postgres
+    type: SSH
+    name: proxy-do-postgres
+    host: 192.168.10.226
+    port: 2223
+    auth:
+      username: tunnel
+      password: '!encrypted EMRamIH2CIZEysd9b0GRqg==.UsJn/DSxqPLreAIYUnI06A=='
+  actions:
+  - action: Run PostgreSQL queries via proxy
+    type: POSTGRESQL_CLI
+    shell: BASH
+    execute_commands:
+    - psql -c '\dt'
+    postgresql_version: 16
+    targets:
+    - target: postgres
+      type: POSTGRESQL
+      name: Local PostgreSQL
+      host: postgres
+      port: 5432
+      database: devdb
+      auth:
+        username: testuser
+        password: '!encrypted jNbx2XdL/8jZfrISvrkyAw==.h+PTlUn6SPdHsd1/1+IP6w=='
+      proxy: proxy-do-postgres
+  - action: Run PostgreSQL queries directly
+    type: POSTGRESQL_CLI
+    shell: BASH
+    execute_commands:
+    - psql -c '\dt'
+    postgresql_version: 16
+    targets:
+    - target: postgres-direct
+      type: POSTGRESQL
+      name: Direct PostgreSQL
+      host: 192.168.10.226
+      port: 5433
+      database: devdb
+      auth:
+        username: testuser
+        password: '!encrypted jNbx2XdL/8jZfrISvrkyAw==.h+PTlUn6SPdHsd1/1+IP6w=='
