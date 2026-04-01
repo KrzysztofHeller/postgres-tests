@@ -35,7 +35,7 @@ Hasło: `rootpass`
 #### 1. Otwórz tunel SSH (terminal 1)
 
 ```bash
-ssh -L 5432:postgres:5432 tunnel@192.168.10.226 -p 2222
+ssh -L 5432:postgres:5432 tunnel@192.168.10.226 -p 2223
 ```
 
 Hasło: `tunnel`
